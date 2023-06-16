@@ -9,7 +9,6 @@ from . import models, schemas, auth
 
 
 def get_tasks(db: Session, user_id: int, filter: bool = None):
-    print(user_id)
     if filter is not None:
         db_tasks = db.query(models.Task).filter_by(completed=filter, owner_id=user_id).all()
     else:
